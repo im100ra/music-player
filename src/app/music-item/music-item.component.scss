@@ -1,0 +1,80 @@
+.music-item{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    color: white;
+}
+.selected-music-item{
+    background-color: rgb(255 255 255 / 7%);
+}
+.music-icon{
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 5px;
+    @media (max-width:768px) {
+        width: 55px;
+        height: 55px; 
+    }
+
+    @media (max-width:480px) {
+        width: 45px;
+        height: 45px; 
+    }
+
+}
+
+.music-short-description{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-right: 20px;
+    flex-direction: column;
+    gap: 7px;
+    @media (max-width:768px) {
+        font-size: 13px;
+    }
+}
+
+.music-duration{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.loader {
+    width: 2px;
+    height: 16px;
+    border-radius: 1px;
+    display: block;
+    margin: 10px auto;
+    position: relative;
+    background: currentColor;
+    color: #ffffffa9;
+    box-sizing: border-box;
+    animation: animloader 0.3s 0.3s linear infinite alternate;
+  }
+  
+  .loader::after, .loader::before {
+    content: '';
+    width: 2px;
+    height: 16px;
+    border-radius: 1px;
+    background: currentColor;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 7px;
+    box-sizing: border-box;
+    animation: animloader 0.3s  0.45s  linear infinite alternate;
+  }
+  .loader::before {
+    left: -7px;
+    animation-delay: 0s;
+  }
+  
+  @keyframes animloader {
+    0%   { height: 18px} 
+    100% { height: 3px}
+  }

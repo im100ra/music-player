@@ -1,0 +1,11 @@
+<input
+  type="range"
+  id="vol"
+  name="vol"
+  min="0"
+  (change)="progressBarChangeEvent.emit($event)"
+  (input)="progressBarChangingLive.emit($event)"
+  [max]="max"
+  [value]="value"
+  class="music-progress-bar"
+/>

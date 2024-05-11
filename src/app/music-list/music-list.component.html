@@ -1,0 +1,11 @@
+<div class="music-playlist-name">
+  {{ playListName | replcaeEmptyString : "لیست ترک ها" }}
+  <span class="track-counter">
+    {{musicList.length}}
+</span>
+</div>
+<div class="music-list">
+  @for(music of musicList;track music;let index = $index){
+  <app-music-item [musicData]="music" [selectedMusicIndex]="selectedMusicIndex" [musicItemIndex]="index" (click)="changeMusicEvent.emit(index)"></app-music-item>
+  }
+</div>

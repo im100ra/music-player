@@ -1,0 +1,23 @@
+<div class="music-item" [class.selected-music-item]="selectedMusicIndex == musicItemIndex">
+  <img
+  class="music-icon"
+  [src]="musicData.icon  | replcaeEmptyString: 'assets/images/music-icon.png' "
+/>
+<div class="music-short-description">
+  <span>
+    {{ musicData.name | replcaeEmptyString: "ترک" }}
+  </span>
+  <span>
+    {{ musicData.director | replcaeEmptyString: "نیک داد" }}
+  </span>
+</div>
+<span class="music-duration">
+    @if(musicData.isPlaying){
+        <span class="loader" ></span>
+    }@else {
+        {{(musicData.duration | secondToTime)}}
+    }
+
+</span>
+
+</div>

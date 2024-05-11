@@ -1,0 +1,2 @@
+<app-music-player-container style="flex: 1;" [musicList]="musicList" [selectedMusicIndex]="selectedMusicIndex" (changeMusicEvent)="changeMusicEvent($event)"></app-music-player-container>
+<app-music-list style="flex: 1;" [musicList]="musicList" [selectedMusicIndex]="selectedMusicIndex" (changeMusicEvent)="setMusicByIndex($event)"></app-music-list>

@@ -1,0 +1,53 @@
+<ng-container *ngIf="selectedMusic">
+  <div class="music">
+    <img
+      class="music-cover"
+      [src]="
+        selectedMusic.icon | replcaeEmptyString : 'assets/images/music-icon.png'
+      "
+    />
+
+    <app-music-progress
+      [max]="selectedMusic.duration"
+      [value]="selectedMusic.currentPlayTime"
+      (progressBarChangeEvent)="progressBarChangeEvent($event)"
+      (progressBarChangingLive)="progressBarChangingLive($event)"
+    ></app-music-progress>
+
+    <div class="music-time-description">
+      <p>
+        {{ selectedMusic.duration | secondToTime }}
+      </p>
+      <p>
+        {{ selectedMusic.currentPlayTime | secondToTime }}
+      </p>
+    </div>
+
+    <div class="music-controls">
+      <button
+        class="play-pause-button"
+        [class.music-control-disabled]="
+          selectedMusicIndex >= musicList.length - 1
+        "
+        (click)="next()"
+      >
+        <img src="assets/images/next-icon.svg" />
+      </button>
+
+      <button class="play-pause-button" (click)="play()">
+        @if(!selectedMusic.isPlaying){
+        <img src="assets/images/play-icon.svg" />
+        }@else{
+        <img src="assets/images/pause-icon.svg" />
+        }
+      </button>
+      <button
+        class="play-pause-button"
+        [class.music-control-disabled]="selectedMusicIndex == 0"
+        (click)="back()"
+      >
+        <img src="assets/images/back-icon.svg" />
+      </button>
+    </div>
+  </div>
+</ng-container>
